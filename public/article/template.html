@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article - AI KANNADA</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .article-header {
+            padding: 100px 0 50px;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            text-align: center;
+        }
+        
+        .article-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        
+        .article-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+        
+        .article-meta {
+            display: flex;
+            gap: 1rem;
+            color: var(--light-text);
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+        }
+        
+        .article-body {
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary);
+            text-decoration: none;
+            margin-bottom: 2rem;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">AI KANNADA</div>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/ai-news.html">AI News</a></li>
+                <li><a href="/ai-tech.html">AI Technology</a></li>
+                <li><a href="/karnataka-tech.html">Karnataka Tech</a></li>
+                <li><a href="/blogs.html">Blogs</a></li>
+                <li><a href="/startup.html">AI Startups</a></li>
+                <li><a href="/admin.html" class="admin-link"><i class="fas fa-lock"></i> Admin</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Article Content -->
+    <header class="article-header">
+        <div class="container">
+            <span class="category">Technology</span>
+            <h1>Article Title</h1>
+            <div class="article-meta">
+                <span><i class="far fa-calendar"></i> June 15, 2023</span>
+                <span><i class="far fa-user"></i> Admin</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="article-content">
+        <a href="javascript:history.back()" class="back-link">
+            <i class="fas fa-arrow-left"></i> Back to Articles
+        </a>
+        
+        <img src="/images/placeholder.jpg" alt="Article" class="article-image">
+        
+        <div class="article-body">
+            <p>This is a sample article content. The actual content will be dynamically loaded based on the article ID in the URL.</p>
+            <p>More content goes here...</p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About Us</h3>
+                    <p>AI KANNADA is your premier source for AI and technology news, tutorials, and insights.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/ai-news.html">AI News</a></li>
+                        <li><a href="/ai-tech.html">AI Technology</a></li>
+                        <li><a href="/karnataka-tech.html">Karnataka Tech</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 AI KANNADA. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/main.js"></script>
+</body>
+</html>

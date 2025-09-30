@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karnataka Tech - AI KANNADA</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Kannada:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        .tech-hubs {
+            margin: 4rem 0;
+        }
+        
+        .hub-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .hub-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .hub-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
+        .hub-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+            color: white;
+            padding: 1.5rem;
+        }
+        
+        .hub-content {
+            padding: 1.5rem;
+        }
+        
+        .hub-stats {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1rem;
+            color: var(--light-text);
+            font-size: 0.9rem;
+        }
+        
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">AI KANNADA</div>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/ai-news.html">AI News</a></li>
+                <li><a href="/ai-tech.html">AI Technology</a></li>
+                <li><a href="/karnataka-tech.html" class="active">Karnataka Tech</a></li>
+                <li><a href="/blogs.html">Blogs</a></li>
+                <li><a href="/startup.html">AI Startups</a></li>
+                <li><a href="/admin" class="admin-link"><i class="fas fa-lock"></i> Admin</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="page-header" style="background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);">
+        <div class="container">
+            <h1 style="color: white;">Karnataka Technology Hub</h1>
+            <p style="color: rgba(255,255,255,0.9); max-width: 700px; margin: 0 auto;">Discover the latest technology innovations, startups, and developments from India's Silicon Valley and beyond</p>
+        </div>
+    </header>
+
+    <main class="section">
+        <div class="container">
+            <section class="section">
+                <div class="category-filters">
+                    <button class="filter-btn active" data-category="all">All News</button>
+                    <button class="filter-btn" data-category="Startups">Startups</button>
+                    <button class="filter-btn" data-category="Policy">Policy</button>
+                    <button class="filter-btn" data-category="Education">Education</button>
+                    <button class="filter-btn" data-category="Infrastructure">Infrastructure</button>
+                </div>
+                
+                <div class="grid" id="ktTechList">
+                    <!-- Karnataka Tech articles will be loaded here -->
+                </div>
+                
+                <div class="tech-hubs">
+                    <h2 class="section-title">Tech Hubs of Karnataka</h2>
+                    <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem;">
+                        <div class="hub-card">
+                            <div class="hub-image" style="background-image: url('https://source.unsplash.com/random/600x400/?bangalore,it')">
+                                <div class="hub-overlay">
+                                    <h3>Bangalore</h3>
+                                </div>
+                            </div>
+                            <div class="hub-content">
+                                <p>India's Silicon Valley, home to tech giants, innovative startups, and world-class research institutions.</p>
+                                <div class="hub-stats">
+                                    <div class="stat-item">
+                                        <i class="fas fa-building"></i>
+                                        <span>5,000+ Startups</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <i class="fas fa-user-tie"></i>
+                                        <span>1.5M+ Tech Jobs</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="hub-card">
+                            <div class="hub-image" style="background-image: url('https://source.unsplash.com/random/600x400/?mysore,palace')">
+                                <div class="hub-overlay">
+                                    <h3>Mysuru</h3>
+                                </div>
+                            </div>
+                            <div class="hub-content">
+                                <p>Emerging as a major IT destination with special economic zones and educational institutions.</p>
+                                <div class="hub-stats">
+                                    <div class="stat-item">
+                                        <i class="fas fa-building"></i>
+                                        <span>150+ Companies</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <i class="fas fa-graduation-cap"></i>
+                                        <span>50+ Colleges</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="hub-card">
+                            <div class="hub-image" style="background-image: url('https://source.unsplash.com/random/600x400/?hubli,industry')">
+                                <div class="hub-overlay">
+                                    <h3>Hubballi-Dharwad</h3>
+                                </div>
+                            </div>
+                            <div class="hub-content">
+                                <p>Growing IT/ITES hub in North Karnataka with focus on manufacturing and technology.</p>
+                                <div class="hub-stats">
+                                    <div class="stat-item">
+                                        <i class="fas fa-industry"></i>
+                                        <span>Tech & Manufacturing</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <i class="fas fa-chart-line"></i>
+                                        <span>Rapid Growth</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <section class="section" style="background: var(--light-bg);">
+        <div class="container">
+            <div class="newsletter-cta">
+                <h3>Stay Updated with Karnataka Tech</h3>
+                <p>Subscribe to our newsletter for the latest technology news and updates from across Karnataka.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <h3>AI KANNADA</h3>
+                    <p>Your source for the latest information on AI and technology in English</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/ai-news.html">AI News</a></li>
+                        <li><a href="/ai-tech.html">AI Technology</a></li>
+                        <li><a href="/karnataka-tech.html">Karnataka Tech</a></li>
+                        <li><a href="/startup.html">AI Startups</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-envelope"></i> info@aikannada.com</p>
+                    <p><i class="fas fa-phone"></i> +91 9876543210</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Bangalore, Karnataka</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 AI KANNADA. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Article Modal -->
+    <div id="articleModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body">
+                <!-- Content will be inserted here by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/main.js"></script>
+    <script src="/js/backend.js"></script>
+    <script src="/js/site.js"></script>
+    <script src="/js/article-utils.js"></script>
+    <script src="/js/blog-utils.js"></script>
+    <script>
+        // Initialize the blog listing with Karnataka Tech category
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize the blog listing with Karnataka Tech category
+            initBlogListing('karnataka-tech');
+            
+            // Set up any additional page-specific functionality here
+            const cityCards = document.querySelectorAll('.city-card');
+            cityCards.forEach(card => {
+                card.addEventListener('click', function(e) {
+                    if (e.target.tagName === 'A' || e.target.closest('a')) return;
+                    const link = this.querySelector('a');
+                    if (link) link.click();
+                });
+            });
+
+            // Set up filter buttons if they exist
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            if (filterButtons.length > 0) {
+                filterButtons.forEach(button => {
+                    button.addEventListener('click', function() {
+                        // Remove active class from all buttons
+                        filterButtons.forEach(btn => btn.classList.remove('active'));
+                        // Add active class to clicked button
+                        this.classList.add('active');
+                        
+                        const category = this.dataset.category;
+                        const articles = document.querySelectorAll('.article-card, .card');
+                        
+                        articles.forEach(article => {
+                            const articleCategory = article.getAttribute('data-category');
+                            if (category === 'all' || articleCategory === category) {
+                                article.style.display = 'block';
+                            } else {
+                                article.style.display = 'none';
+                            }
+                        });
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>

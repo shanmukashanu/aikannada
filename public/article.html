@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Read full article - AI KANNADA">
+  <title>Article - AI KANNADA</title>
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Kannada:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    /* Article Page Styles */
+    .article-container {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+    }
+
+    .article-header {
+      margin-bottom: 2.5rem;
+      text-align: center;
+    }
+
+    .article-category {
+      display: inline-block;
+      background: rgba(59, 130, 246, 0.1);
+      color: #3b82f6;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.35rem 1rem;
+      border-radius: 20px;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .article-title {
+      font-size: 2.25rem;
+      margin: 0 0 1rem;
+      color: #111827;
+      line-height: 1.2;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      color: #6b7280;
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .article-meta span {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .article-image {
+      width: 100%;
+      max-height: 520px;
+      object-fit: contain; /* show full image without cropping */
+      background: #000; /* letterbox background */
+      border-radius: 12px;
+      margin: 2rem 0;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    }
+
+    .article-content {
+      line-height: 1.8;
+      font-size: 1.1rem;
+      color: #374151;
+    }
+
+    .article-content p {
+      margin-bottom: 1.5rem;
+    }
+
+    .article-content img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin: 1.5rem 0;
+    }
+
+    .article-footer {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid #e5e7eb;
+    }
+
+    /* Comment form UI */
+    .comment-form .form-control {
+      padding: 0.75rem 1rem;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+    .comment-form .form-control:focus { outline: none; border-color: #2563eb; box-shadow: 0 0 0 3px rgba(37,99,235,.1); }
+
+    .back-to-blog {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #3b82f6;
+      text-decoration: none;
+      font-weight: 500;
+      margin-bottom: 2rem;
+      transition: color 0.2s ease;
+    }
+
+    .back-to-blog:hover {
+      color: #2563eb;
+    }
+
+    @media (max-width: 768px) {
+      .article-title {
+        font-size: 1.75rem;
+      }
+      
+      .article-meta {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: center;
+      }
+      
+      .article-content {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container">
+      <div class="logo">AI KANNADA</div>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/admin" class="btn btn-primary">Admin</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="article-container">
+    <a href="/blog" class="back-to-blog">
+      <i class="fas fa-arrow-left"></i> Back to Blog
+    </a>
+    
+    <article>
+      <header class="article-header">
+        <span class="article-category" id="article-category">AI News</span>
+        <h1 class="article-title" id="article-title">Loading Article...</h1>
+        <div class="article-meta">
+          <span><i class="far fa-calendar"></i> <span id="article-date">-</span></span>
+          <span><i class="far fa-user"></i> <span id="article-author">Admin</span></span>
+        </div>
+      </header>
+
+      <img src="" alt="Article Image" class="article-image" id="article-image" style="display: none;">
+      
+      <div class="article-content" id="article-content">
+        <p>Loading content...</p>
+      </div>
+      
+      <footer class="article-footer">
+        <div id="likeRow" style="display:flex; align-items:center; gap:12px;">
+          <button id="likeBtn" class="btn btn-primary"><i class="fas fa-heart"></i> Like</button>
+          <span id="likeCount">0</span>
+        </div>
+
+        <div id="commentsBlock" style="margin-top:2rem; display:none;">
+          <h3>Comments</h3>
+          <div id="commentsList" class="comments-list" style="margin: 1rem 0;"></div>
+          <form id="commentForm" class="comment-form">
+            <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+              <input type="text" id="cName" placeholder="Your name" required class="form-control">
+              <input type="email" id="cEmail" placeholder="Your email" required class="form-control">
+            </div>
+            <textarea id="cContent" rows="4" placeholder="Write a comment..." required class="form-control" style="margin-top: 0.75rem;"></textarea>
+            <div style="margin-top: 0.75rem; display:flex; align-items:center; gap: 12px;">
+              <button type="submit" class="btn btn-outline">Post Comment</button>
+              <span id="cStatus" class="small"></span>
+            </div>
+          </form>
+        </div>
+      </footer>
+    </article>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2025 AI KANNADA. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/backend.js"></script>
+  <script>
+    function mapCategory(cat) {
+      switch (cat) {
+        case 'ai_news': return 'AI News';
+        case 'ai_technology': return 'AI Technology';
+        case 'karnataka_tech': return 'Karnataka Tech';
+        case 'blog': return 'Blogs';
+        case 'ai_startup': return 'AI Startups';
+        default: return cat || 'Article';
+      }
+    }
+
+    let currentPost = null;
+
+    async function loadPost() {
+      const slug = location.pathname.split('/').pop();
+      try {
+        const post = await API.getPostBySlug(slug);
+        currentPost = post;
+        document.title = `${post.title} - AI KANNADA`;
+        document.getElementById('article-title').textContent = post.title;
+        document.getElementById('article-category').textContent = mapCategory(post.category);
+        document.getElementById('article-date').textContent = new Date(post.createdAt).toLocaleDateString();
+        if (post.author) document.getElementById('article-author').textContent = post.author;
+        const img = document.getElementById('article-image');
+        if (post.imageUrl) { img.src = post.imageUrl; img.style.display = 'block'; } else { img.style.display = 'none'; }
+        document.getElementById('article-content').innerHTML = post.content || '';
+
+        // Likes
+        document.getElementById('likeCount').textContent = post.likes || 0;
+        document.getElementById('likeBtn').onclick = async () => {
+          try {
+            const { likes } = await API.likePost(post._id);
+            document.getElementById('likeCount').textContent = likes;
+          } catch (_) {}
+        };
+
+        // Comments enabled for all categories
+        const commentsBlock = document.getElementById('commentsBlock');
+        commentsBlock.style.display = 'block';
+        await loadComments();
+      } catch (e) {
+        document.getElementById('article-title').textContent = 'Article Not Found';
+        document.getElementById('article-content').innerHTML = '<p>Sorry, this article could not be loaded.</p>';
+      }
+    }
+
+    async function loadComments() {
+      if (!currentPost?._id) return;
+      try {
+        const items = await API.listComments(currentPost._id);
+        const list = document.getElementById('commentsList');
+        if (!items.length) {
+          list.innerHTML = '<p class="text-muted">No comments yet. Be the first to comment.</p>';
+        } else {
+          list.innerHTML = items.map(c => `
+            <div class="comment" style="padding:0.75rem 0; border-bottom:1px solid #eee;">
+              <div style="font-weight:600;">${c.name} <span style="color:#888; font-weight:400;">• ${new Date(c.createdAt).toLocaleString()}</span></div>
+              <div>${c.content}</div>
+            </div>
+          `).join('');
+        }
+      } catch (_) {}
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      loadPost();
+      const form = document.getElementById('commentForm');
+      form?.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const status = document.getElementById('cStatus');
+        if (!currentPost?._id) return;
+        try {
+          status.textContent = 'Posting...';
+          await API.addComment(currentPost._id, { name: document.getElementById('cName').value.trim(), email: document.getElementById('cEmail').value.trim(), content: document.getElementById('cContent').value.trim() });
+          (e.target).reset();
+          status.textContent = 'Posted.';
+          loadComments();
+        } catch (err) {
+          status.textContent = 'Failed to post comment';
+        }
+      });
+    });
+
+  </script>
+
+  <!-- Admin Integration Script -->
+  <script>
+    // Add functionality to admin panel read more buttons
+    if (window.location.pathname.includes('/admin')) {
+        document.addEventListener('click', function(e) {
+            const readMoreBtn = e.target.closest('.btn-outline');
+            if (!readMoreBtn || !readMoreBtn.textContent.includes('Edit')) return;
+            
+            const articleItem = readMoreBtn.closest('.article-item');
+            if (!articleItem) return;
+            
+            // Find the article data from the displayed articles
+            const articlesList = document.getElementById('articlesList');
+            const blogsList = document.getElementById('blogsList');
+            
+            let articles = [];
+            if (articlesList) {
+                // Get articles from the displayed list
+                articles = Array.from(articlesList.querySelectorAll('.article-item')).map(item => {
+                    const title = item.querySelector('.article-title').textContent;
+                    return {
+                        id: Date.now(), // Generate unique ID
+                        title: title,
+                        content: '<p>Article content would be loaded from your data source.</p>',
+                        category: 'Article',
+                        author: 'Admin',
+                        date: new Date().toISOString()
+                    };
+                });
+            }
+            
+            if (articles.length > 0) {
+                // Store article in localStorage for the article page to read
+                localStorage.setItem('currentArticle', JSON.stringify(articles[0]));
+                
+                // Redirect to article page
+                const articleUrl = `/article/${articles[0].id}-article`;
+                window.location.href = articleUrl;
+            }
+        });
+    }
+  </script>
+</body>
+</html>

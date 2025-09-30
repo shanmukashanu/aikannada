@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Articles - AI KANNADA</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Kannada:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container">
+        <div class="logo">AI KANNADA</div>
+        <ul class="nav-links">
+            <li><a href="/" class="active">Home</a></li>
+            <li><a href="/ai-news.html">AI News</a></li>
+            <li><a href="/ai-tech.html">AI Technology</a></li>
+            <li><a href="/articles.html">Articles</a></li>
+            <li><a href="/blogs.html">Blogs</a></li>
+            <li><a href="/about.html">About</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+            <li><a href="/admin" class="admin-link"><i class="fas fa-lock"></i> Admin</a></li>
+        </ul>
+    </div>
+</nav>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const container = document.querySelector(".navbar .container");
+  
+    // Create menu toggle button
+    const menuToggle = document.createElement("div");
+    menuToggle.innerHTML = "&#9776;"; // 3 lines
+    menuToggle.id = "menu-toggle";
+    menuToggle.style.fontSize = "26px";
+    menuToggle.style.cursor = "pointer";
+    menuToggle.style.display = "none"; // hidden on desktop
+    menuToggle.style.color = "blue";   // blue colour
+    menuToggle.style.marginLeft = "auto"; // push to right side
+  
+    container.appendChild(menuToggle);
+  
+    const navLinks = document.querySelector(".nav-links");
+  
+    // Apply inline mobile styles with JS
+    function applyMobileStyles() {
+      if (window.innerWidth <= 768) {
+        menuToggle.style.display = "block";
+  
+        navLinks.style.position = "fixed";
+        navLinks.style.top = "0";
+        navLinks.style.left = "-50%"; // hidden (off-screen left)
+        navLinks.style.height = "100vh";
+        navLinks.style.width = "50%"; // half screen width
+        navLinks.style.background = "#111";
+        navLinks.style.flexDirection = "column";
+        navLinks.style.alignItems = "flex-start";
+        navLinks.style.padding = "20px";
+        navLinks.style.gap = "15px";
+        navLinks.style.transition = "left 0.3s ease";
+      } else {
+        menuToggle.style.display = "none";
+        navLinks.style = ""; // reset for desktop
+      }
+    }
+  
+    // Toggle menu on click
+    menuToggle.addEventListener("click", function () {
+      if (navLinks.style.left === "0px") {
+        navLinks.style.left = "-50%"; // hide
+      } else {
+        navLinks.style.left = "0"; // show
+      }
+    });
+  
+    // Run on load + resize
+    applyMobileStyles();
+    window.addEventListener("resize", applyMobileStyles);
+  });
+  </script>
+
+  <header class="page-header">
+    <div class="container">
+     <center><h1>Featured Articles</h1></center>
+      <p>Long reads and featured stories from AI and technology</p>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <section class="section">
+        <div class="grid" id="articleList"></div>
+      </section>
+    </div>
+  </main>
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+      <div class="footer-grid">
+          <div class="footer-about">
+              <h3>AI KANNADA</h3>
+              <p>AI KANNADA is a platform providing information about artificial intelligence and technology in English.</p>
+          </div>
+          <div class="footer-links">
+              <h4>Contact Us</h4>
+              <p class="mb-1 text-white-50"><i class="fas fa-envelope me-2"></i>info@careerredefine.com</p>
+              <p class="mb-1 text-white-50"><i class="fas fa-phone me-2"></i>+91 9535713363</p>
+              <p class="mb-3 text-white-50"><i class="fas fa-map-marker-alt me-2"></i>22nd Floor, World Trade Center, Unit No 2201A, Rajajinagar, Bengaluru, India</p>
+          </div>
+          <div class="footer-social">
+              <h4>Follow Us</h4>
+              <div class="social-links">
+                <a href="https://www.facebook.com/profile.php?id=61564699643555" class="text-white me-3" style="transition: transform 0.3s;" onmouseover="this.style.transform='rotate(15deg)'" onmouseout="this.style.transform='rotate(0deg)'"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="text-white me-3" style="transition: transform 0.3s;" onmouseover="this.style.transform='rotate(15deg)'" onmouseout="this.style.transform='rotate(0deg)'"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.linkedin.com/company/career-redefine/" class="text-white me-3" style="transition: transform 0.3s;" onmouseover="this.style.transform='rotate(15deg)'" onmouseout="this.style.transform='rotate(0deg)'"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.instagram.com/career_redefine.ai/" class="text-white" style="transition: transform 0.3s;" onmouseover="this.style.transform='rotate(15deg)'" onmouseout="this.style.transform='rotate(0deg)'"><i class="fab fa-instagram"></i></a>
+              </div>
+          </div>
+      </div>
+      <div class="footer-bottom">
+          <p style="color: white;">&copy; 2025 AI KANNADA. All Rights Reserved.</p>
+
+      </div>
+  </div>
+</footer>
+
+  <script src="/js/main.js"></script>
+  <script src="/js/backend.js"></script>
+  <script src="/js/site.js"></script>
+</body>
+</html>

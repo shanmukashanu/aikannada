@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin - AI KANNADA</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    body { display: flex; margin: 0; font-family: sans-serif; background-color: #f0f2f5; }
+    .sidebar { width: 220px; background-color: #2c3e50; color: white; height: 100vh; padding-top: 20px; }
+    .sidebar a { display: block; color: white; padding: 16px; text-decoration: none; }
+    .sidebar a.active, .sidebar a:hover { background-color: #34495e; }
+    .main-content { flex-grow: 1; padding: 20px; }
+    .content-panel { display: none; }
+    .content-panel.active { display: block; }
+    .form-section, .list-section { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+  </style>
+</head>
+<body>
+  <div id="admin-root"></div>
+  <script src="/js/backend.js"></script>
+  <script src="/js/admin.js"></script>
+</body>
+</html>

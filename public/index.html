@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Latest information about AI and technology in English - AI KANNADA">
+    <title>AI KANNADA - Artificial Intelligence in English</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Kannada:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans Kannada', sans-serif;
+        }
+        .hero h1, .section-title {
+            font-weight: 700;
+        }
+        .article-card h3 {
+            font-weight: 600;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">AI KANNADA</div>
+            <ul class="nav-links">
+                <li><a href="/" class="active">Home</a></li>
+                <li><a href="/ai-news.html">AI News</a></li>
+                <li><a href="/ai-tech.html">AI Technology</a></li>
+                <li><a href="/articles.html">Articles</a></li>
+                <li><a href="/blogs.html">Blogs</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+                <li><a href="/admin" class="admin-link"><i class="fas fa-lock"></i> Admin</a></li>
+            </ul>
+        </div>
+    </nav>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const container = document.querySelector(".navbar .container");
+      
+        // Create menu toggle button
+        const menuToggle = document.createElement("div");
+        menuToggle.innerHTML = "&#9776;"; // 3 lines
+        menuToggle.id = "menu-toggle";
+        menuToggle.style.fontSize = "26px";
+        menuToggle.style.cursor = "pointer";
+        menuToggle.style.display = "none"; // hidden on desktop
+        menuToggle.style.color = "blue";   // blue colour
+        menuToggle.style.marginLeft = "auto"; // push to right side
+      
+        container.appendChild(menuToggle);
+      
+        const navLinks = document.querySelector(".nav-links");
+      
+        // Apply inline mobile styles with JS
+        function applyMobileStyles() {
+          if (window.innerWidth <= 768) {
+            menuToggle.style.display = "block";
+      
+            navLinks.style.position = "fixed";
+            navLinks.style.top = "0";
+            navLinks.style.left = "-50%"; // hidden (off-screen left)
+            navLinks.style.height = "100vh";
+            navLinks.style.width = "50%"; // half screen width
+            navLinks.style.background = "#111";
+            navLinks.style.flexDirection = "column";
+            navLinks.style.alignItems = "flex-start";
+            navLinks.style.padding = "20px";
+            navLinks.style.gap = "15px";
+            navLinks.style.transition = "left 0.3s ease";
+          } else {
+            menuToggle.style.display = "none";
+            navLinks.style = ""; // reset for desktop
+          }
+        }
+      
+        // Toggle menu on click
+        menuToggle.addEventListener("click", function () {
+          if (navLinks.style.left === "0px") {
+            navLinks.style.left = "-50%"; // hide
+          } else {
+            navLinks.style.left = "0"; // show
+          }
+        });
+      
+        // Run on load + resize
+        applyMobileStyles();
+        window.addEventListener("resize", applyMobileStyles);
+      });
+      </script>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-image-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1>Explore the world: your daily source for global news and insights</h1>
+                <p>AI News, Tech, Articles and Blogs curated for you</p>
+                <div class="hero-buttons">
+                    <a href="#mixed" class="btn btn-primary">Browse Latest</a>
+                    <a href="/ai-news.html" class="btn btn-outline">AI News</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mixed Grid Section -->
+    <section id="mixed" class="section">
+      <div class="container">
+        <div class="sec-head">
+          <h3>Latest from all categories</h3>
+        </div>
+        <div class="grid" id="mixed-grid"></div>
+      </div>
+    </section>
+
+    <!-- Category Sections -->
+    <section class="section bg-light">
+      <div class="container">
+        <div class="sec-head">
+          <h3>News</h3>
+          <div class="sec-actions"><a href="/ai-news.html">View all →</a></div>
+        </div>
+        <div class="mag-row-grid" id="news-sec-grid"></div>
+        <div class="sec-actions text-center mt-4"><button id="news-more" class="btn btn-outline">Load more</button></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="sec-head">
+          <h3>Tech</h3>
+          <div class="sec-actions"><a href="/ai-tech.html">View all →</a></div>
+        </div>
+        <div class="mag-row-grid" id="tech-sec-grid"></div>
+        <div class="sec-actions text-center mt-4"><button id="tech-more" class="btn btn-outline">Load more</button></div>
+      </div>
+    </section>
+
+    <section class="section bg-light">
+      <div class="container">
+        <div class="sec-head">
+          <h3>Articles</h3>
+          <div class="sec-actions"><a href="/articles.html">View all →</a></div>
+        </div>
+        <div class="mag-row-grid" id="articles-sec-grid"></div>
+        <div class="sec-actions text-center mt-4"><button id="articles-more" class="btn btn-outline">Load more</button></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="sec-head">
+          <h3>Blogs</h3>
+          <div class="sec-actions"><a href="/blogs.html">View all →</a></div>
+        </div>
+        <div class="mag-row-grid" id="blogs-sec-grid"></div>
+        <div class="sec-actions text-center mt-4"><button id="blogs-more" class="btn btn-outline">Load more</button></div>
+      </div>
+    </section>
+
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <h3>AI KANNADA</h3>
+                    <p>AI KANNADA is a platform providing information about artificial intelligence and technology in English.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Contact Us</h4>
+                    <p class="mb-1 text-white-50"><i class="fas fa-envelope me-2"></i>info@careerredefine.com</p>
+                    <p class="mb-1 text-white-50"><i class="fas fa-phone me-2"></i>+91 9535713363</p>
+                    <p class="mb-3 text-white-50"><i class="fas fa-map-marker-alt me-2"></i>22nd Floor, World Trade Center, Unit No 2201A, Rajajinagar, Bengaluru, India</p>
+                </div>
+                <div class="footer-social">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                      <a href="https://www.facebook.com/profile.php?id=61564699643555" class="text-white me-3" style="transition: transform 0.3s;" onmouseover="this.style.transform='rotate(15deg)'" onmouseout="this.style.transform='rotate(0deg)'"><i class="fab fa-facebook"></i></a>
+                      <a href="#" class="text-white me-3" style="transition: transform 0.3s;" onmouseover="this.style.transform='rotate(15deg)'" onmouseout="this.style.transform='rotate(0deg)'"><i class="fab fa-twitter"></i></a>
+                      <a href="https://www.linkedin.com/company/career-redefine/" class="text-white me-3" style="transition: transform 0.3s;" onmouseover="this.style.transform='rotate(15deg)'" onmouseout="this.style.transform='rotate(0deg)'"><i class="fab fa-linkedin"></i></a>
+                      <a href="https://www.instagram.com/career_redefine.ai/" class="text-white" style="transition: transform 0.3s;" onmouseover="this.style.transform='rotate(15deg)'" onmouseout="this.style.transform='rotate(0deg)'"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p style="color: white;">&copy; 2025 AI KANNADA. All Rights Reserved.</p>
+
+            </div>
+        </div>
+    </footer>
+
+    <!-- Article Modal -->
+    <div id="articleModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body">
+                <!-- Content will be inserted here by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/main.js"></script>
+    <script src="/js/backend.js"></script>
+    <script src="/js/site.js"></script>
+    <script src="js/readmore.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Initialize read more functionality after content loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Truncate article excerpts
+            truncateText('.article-excerpt', 150);
+            
+            // Add click handlers for category cards
+            document.querySelectorAll('.category-card').forEach(card => {
+                const readMore = card.querySelector('.read-more');
+                if (readMore) {
+                    readMore.addEventListener('click', function(e) {
+                        // Only prevent default if it's not a direct link
+                        if (!this.getAttribute('href').startsWith('http')) {
+                            e.preventDefault();
+                            window.location.href = this.getAttribute('href');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

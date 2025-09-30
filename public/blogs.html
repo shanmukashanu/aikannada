@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogs - AI KANNADA</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Kannada:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        .blog-categories {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .blog-category {
+            background: white;
+            border: 1px solid #eaeaea;
+            border-radius: 8px;
+            padding: 1.5rem;
+            flex: 1;
+            min-width: 250px;
+            transition: all 0.3s ease;
+        }
+        
+        .blog-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+        
+        .blog-category i {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+        
+        .blog-category h3 {
+            margin: 0.5rem 0;
+            font-size: 1.2rem;
+        }
+        
+        .blog-category p {
+            color: var(--light-text);
+            font-size: 0.9rem;
+            margin: 0.5rem 0 1rem;
+        }
+        
+        .blog-category a {
+            color: var(--primary);
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .blog-category a:hover {
+            text-decoration: underline;
+        }
+        
+        .popular-posts {
+            margin: 4rem 0;
+        }
+        
+        .popular-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .popular-post {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        
+        .popular-post-image {
+            height: 180px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .popular-post-content {
+            padding: 1.5rem;
+        }
+        
+        .popular-post-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: var(--light-text);
+            font-size: 0.85rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .popular-post-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .popular-post h3 {
+            margin: 0.5rem 0;
+            font-size: 1.1rem;
+            line-height: 1.4;
+        }
+        
+        .popular-post p {
+            color: var(--light-text);
+            font-size: 0.9rem;
+            margin: 0.5rem 0 1rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">AI KANNADA</div>
+            <ul class="nav-links">
+                <li><a href="/" class="active">Home</a></li>
+                <li><a href="/ai-news.html">AI News</a></li>
+                <li><a href="/ai-tech.html">AI Technology</a></li>
+                <li><a href="/articles.html">Articles</a></li>
+                <li><a href="/blogs.html">Blogs</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+                <li><a href="/admin" class="admin-link"><i class="fas fa-lock"></i> Admin</a></li>
+            </ul>
+        </div>
+    </nav>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          const container = document.querySelector(".navbar .container");
+        
+          // Create menu toggle button
+          const menuToggle = document.createElement("div");
+          menuToggle.innerHTML = "&#9776;"; // 3 lines
+          menuToggle.id = "menu-toggle";
+          menuToggle.style.fontSize = "26px";
+          menuToggle.style.cursor = "pointer";
+          menuToggle.style.display = "none"; // hidden on desktop
+          menuToggle.style.color = "blue";   // blue colour
+          menuToggle.style.marginLeft = "auto"; // push to right side
+        
+          container.appendChild(menuToggle);
+        
+          const navLinks = document.querySelector(".nav-links");
+        
+          // Apply inline mobile styles with JS
+          function applyMobileStyles() {
+            if (window.innerWidth <= 768) {
+              menuToggle.style.display = "block";
+        
+              navLinks.style.position = "fixed";
+              navLinks.style.top = "0";
+              navLinks.style.left = "-50%"; // hidden (off-screen left)
+              navLinks.style.height = "100vh";
+              navLinks.style.width = "50%"; // half screen width
+              navLinks.style.background = "#111";
+              navLinks.style.flexDirection = "column";
+              navLinks.style.alignItems = "flex-start";
+              navLinks.style.padding = "20px";
+              navLinks.style.gap = "15px";
+              navLinks.style.transition = "left 0.3s ease";
+            } else {
+              menuToggle.style.display = "none";
+              navLinks.style = ""; // reset for desktop
+            }
+          }
+        
+          // Toggle menu on click
+          menuToggle.addEventListener("click", function () {
+            if (navLinks.style.left === "0px") {
+              navLinks.style.left = "-50%"; // hide
+            } else {
+              navLinks.style.left = "0"; // show
+            }
+          });
+        
+          // Run on load + resize
+          applyMobileStyles();
+          window.addEventListener("resize", applyMobileStyles);
+        });
+        </script>
+
+    <header class="page-header" style="background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);">
+        <div class="container">
+           <center> <h1 style="color: white;">AI & Technology Blog</h1> </center>
+            <p style="color: rgba(255,255,255,0.9); max-width: 700px; margin: 0 auto;">Insights, analysis, and thought leadership on artificial intelligence and emerging technologies</p>
+        </div>
+    </header>
+
+    <main class="section">
+        <div class="container">
+            <section class="section">
+               
+                
+                <div class="grid" id="blogList" style="margin-top: 2rem;">
+                    <!-- Featured Blog Posts -->
+                    <article class="card blog-post" data-category="tutorials">
+                        <div class="card-img">
+                            <img src="https://images.unsplash.com/photo-1677442135136-760c813a743f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Machine Learning Tutorial" loading="lazy">
+                        </div>
+                        <div class="card-content">
+                            <span class="category">Tutorials</span>
+                            <h3>ಕನ್ನಡದಲ್ಲಿ AI ಚಾಟ್ಬಾಟ್ಗಳು: ಸವಾಲುಗಳು ಮತ್ತು ಅವಕಾಶಗಳು</h3>
+                            <p>ಕನ್ನಡದಲ್ಲಿ AI ಚಾಟ್ಬಾಟ್ಗಳನ್ನು ಅಭಿವೃದ್ಧಿಪಡಿಸುವಲ್ಲಿ ಇರುವ ಸವಾಲುಗಳು ಮತ್ತು ಅವಕಾಶಗಳ ಬಗ್ಗೆ ಈ ಲೇಖನ.</p>
+                            <div class="card-meta">
+                                <span><i class="far fa-calendar"></i> 2025-09-15</span>
+                                <span><i class="far fa-eye"></i> 1.2K views</span>
+                            </div>
+                            <button class="read-more" data-article='{"id":1,"title":"ಕನ್ನಡದಲ್ಲಿ AI ಚಾಟ್ಬಾಟ್ಗಳು: ಸವಾಲುಗಳು ಮತ್ತು ಅವಕಾಶಗಳು","excerpt":"ಕನ್ನಡದಲ್ಲಿ AI ಚಾಟ್ಬಾಟ್ಗಳನ್ನು ಅಭಿವೃದ್ಧಿಪಡಿಸುವಲ್ಲಿ ಇರುವ ಸವಾಲುಗಳು ಮತ್ತು ಅವಕಾಶಗಳ ಬಗ್ಗೆ ಈ ಲೇಖನ.","category":"Tutorials","content":"<p>ಕನ್ನಡದಂತಹ ಕಡಿಮೆ-ಸಂಪನ್ಮೂಲ ಹೊಂದಿರುವ ಭಾಷೆಗಳಿಗೆ AI-ಆಧಾರಿತ ಚಾಟ್ಬಾಟ್ಗಳನ್ನು ರಚಿಸುವುದು ಹಲವಾರು ಸವಾಲುಗಳನ್ನು ಹೊಂದಿದೆ. ಇವುಗಳಲ್ಲಿ ದೊಡ್ಡ ಸವಾಲು ಎಂದರೆ ಭಾಷಾ ಡೇಟಾದ ಕೊರತೆ. ಆದಾಗ್ಯೂ, ಇತ್ತೀಚಿನ ವರ್ಷಗಳಲ್ಲಿ, ಸರ್ಕಾರಿ ಮತ್ತು ಖಾಸಗಿ ಸಂಸ್ಥೆಗಳು ಕನ್ನಡ ಭಾಷಾ ಡೇಟಾಸೆಟ್ಗಳನ್ನು ರಚಿಸುವತ್ತ ಗಮನ ಹರಿಸಿವೆ.</p><p>IIIT ಬೆಂಗಳೂರು ಮತ್ತು IISC ನಂತರದ ಸಂಶೋಧನಾ ಸಂಸ್ಥೆಗಳು ಕನ್ನಡದಲ್ಲಿ ನೈಸರ್ಗಿಕ ಭಾಷಾ ಪ್ರಕ್ರಿಯೆಗಾಗಿ ತರಬೇತಿ ನೀಡಲು ದೊಡ್ಡ ಪ್ರಮಾಣದ ಡೇಟಾಸೆಟ್ಗಳನ್ನು ರಚಿಸಿವೆ. ಇದು ಕನ್ನಡದಲ್ಲಿ ಹೆಚ್ಚು ನಿಖರವಾದ ಮತ್ತು ಸಹಜ ಭಾಷಾ ಮಾದರಿಗಳ ಅಭಿವೃದ್ಧಿಗೆ ದಾರಿ ಮಾಡಿಕೊಟ್ಟಿದೆ.</p>","date":"2025-09-15T11:45:00.000Z","image":"https://images.unsplash.com/photo-1677442135136-760c813a743f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80"}'>
+                                Read More →
+                            </button>
+                        </div>
+                    </article>
+                    
+                    <article class="card blog-post" data-category="analysis">
+                        <div class="card-img">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="AI Industry Analysis" loading="lazy">
+                        </div>
+                        <div class="card-content">
+                            <span class="category">Analysis</span>
+                            <h3>ಬೆಂಗಳೂರಿನ AI ಸ್ಟಾರ್ಟಪ್ಗಳು: ಜಾಗತಿಕ ಮಟ್ಟದಲ್ಲಿ ಗುರುತಿಸಿಕೊಂಡಿವೆ</h3>
+                            <p>ಬೆಂಗಳೂರಿನ AI ಸ್ಟಾರ್ಟಪ್ಗಳು ಹೇಗೆ ಜಾಗತಿಕ ಮಟ್ಟದಲ್ಲಿ ಗುರುತಿಸಿಕೊಂಡಿವೆ ಮತ್ತು ಅವುಗಳ ಯಶಸ್ಸಿನ ಕಥೆಗಳ ಬಗ್ಗೆ ಈ ಲೇಖನ.</p>
+                            <div class="card-meta">
+                                <span><i class="far fa-calendar"></i> 2025-09-16</span>
+                                <span><i class="far fa-eye"></i> 2.1K views</span>
+                            </div>
+                            <button class="read-more" data-article='{"id":2,"title":"ಬೆಂಗಳೂರಿನ AI ಸ್ಟಾರ್ಟಪ್ಗಳು: ಜಾಗತಿಕ ಮಟ್ಟದಲ್ಲಿ ಗುರುತಿಸಿಕೊಂಡಿವೆ","excerpt":"ಬೆಂಗಳೂರಿನ AI ಸ್ಟಾರ್ಟಪ್ಗಳು ಹೇಗೆ ಜಾಗತಿಕ ಮಟ್ಟದಲ್ಲಿ ಗುರುತಿಸಿಕೊಂಡಿವೆ ಮತ್ತು ಅವುಗಳ ಯಶಸ್ಸಿನ ಕಥೆಗಳ ಬಗ್ಗೆ ಈ ಲೇಖನ.","category":"Analysis","content":"<p>ಬೆಂಗಳೂರು, ಇಂದು ಭಾರತದ ಸಿಲಿಕಾನ್ ವ್ಯಾಲಿ ಎಂದು ಹೆಸರಾಗಿದೆ, ಇಲ್ಲಿ ನೂರಾರು AI ಸ್ಟಾರ್ಟಪ್ಗಳು ತಮ್ಮ ತಾಂತ್ರಿಕ ಪರಿಹಾರಗಳೊಂದಿಗೆ ಹೊರಹೊಮ್ಮುತ್ತಿವೆ. ಸ್ವಾಸ್ಥ್ಯ ಸಂರಕ್ಷಣೆಯಿಂದ ಹಿಡಿದು ಹಣಕಾಸು ಸೇವೆಗಳವರೆಗೆ, ಈ ಸ್ಟಾರ್ಟಪ್ಗಳು ವಿವಿಧ ಕ್ಷೇತ್ರಗಳಲ್ಲಿ ನಾವೀನ್ಯತೆಯನ್ನು ತಂದಿವೆ.</p><p>ಕೆಲವು ಗಮನಾರ್ಹ AI ಸ್ಟಾರ್ಟಪ್ಗಳಲ್ಲಿ ಸಿಗ್ನಲ್ ಚಿಪ್ (ಆಟೋಮೋಟಿವ್ AI), ನಿರಮತಿ ರೊಬೊಟಿಕ್ಸ್ (ಕೈಗಾರಿಕಾ ರೊಬೊಟಿಕ್ಸ್), ಮತ್ತು ಹ್ಯಾಪಿ ಫಾರೆಸ್ಟ್ (ಆರೋಗ್ಯ ತಂತ್ರಜ್ಞಾನ) ಸೇರಿವೆ. ಈ ಕಂಪನಿಗಳು ಜಾಗತಿಕ ಮಟ್ಟದಲ್ಲಿ ಗುರುತಿಸಿಕೊಂಡು, ಹೆಚ್ಚುತ್ತಿರುವ ತಂತ್ರಜ್ಞಾನ ಕ್ಷೇತ್ರದಲ್ಲಿ ಕರ್ನಾಟಕವನ್ನು ಪ್ರಮುಖ ಆಟಗಾರನನ್ನಾಗಿ ಮಾಡಿವೆ.</p>","date":"2025-09-16T14:20:00.000Z","image":"https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80"}'>
+                                Read More →
+                            </button>
+                        </div>
+                    </article>
+                    
+                    <article class="card blog-post" data-category="industry">
+                        <div class="card-img">
+                            <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="AI in Agriculture" loading="lazy">
+                        </div>
+                        <div class="card-content">
+                            <span class="category">Industry News</span>
+                            <h3>AI ಮತ್ತು ಕೃಷಿ: ಕನ್ನಡ ನಾಡಿನ ರೈತರಿಗೆ ಹೊಸ ಭರವಸೆ</h3>
+                            <p>ಕೃಷಿ ಕ್ಷೇತ್ರದಲ್ಲಿ AI ಹೇಗೆ ಕ್ರಾಂತಿಯನ್ನುಂಟುಮಾಡುತ್ತಿದೆ ಮತ್ತು ಕನ್ನಡ ನಾಡಿನ ರೈತರಿಗೆ ಹೇಗೆ ಸಹಾಯ ಮಾಡುತ್ತಿದೆ ಎಂಬುದರ ಕುರಿತು ಈ ಲೇಖನ.</p>
+                            <div class="card-meta">
+                                <span><i class="far fa-calendar"></i> 2025-09-17</span>
+                                <span><i class="far fa-eye"></i> 1.8K views</span>
+                            </div>
+                            <button class="read-more" data-article='{"id":3,"title":"AI ಮತ್ತು ಕೃಷಿ: ಕನ್ನಡ ನಾಡಿನ ರೈತರಿಗೆ ಹೊಸ ಭರವಸೆ","excerpt":"ಕೃಷಿ ಕ್ಷೇತ್ರದಲ್ಲಿ AI ಹೇಗೆ ಕ್ರಾಂತಿಯನ್ನುಂಟುಮಾಡುತ್ತಿದೆ ಮತ್ತು ಕನ್ನಡ ನಾಡಿನ ರೈತರಿಗೆ ಹೇಗೆ ಸಹಾಯ ಮಾಡುತ್ತಿದೆ ಎಂಬುದರ ಕುರಿತು ಈ ಲೇಖನ.","category":"Industry News","content":"<p>ಕರ್ನಾಟಕದ ಹಲವಾರು ಭಾಗಗಳಲ್ಲಿ, ರೈತರು ತಮ್ಮ ಬೆಳೆಗಳನ್ನು ನಿರ್ವಹಿಸಲು ಮತ್ತು ಲಾಭದಾಯಕವಾಗಿಸಲು AI ತಂತ್ರಜ್ಞಾನವನ್ನು ಬಳಸುತ್ತಿದ್ದಾರೆ. ಡ್ರೋನ್ಗಳು, ಸೆನ್ಸರ್ಗಳು ಮತ್ತು ಮಸ್ಕಿನ್ ಲರ್ನಿಂಗ್ ಅಲ್ಗಾರಿದಮ್ಗಳು ರೈತರಿಗೆ ಹವಾಮಾನದ ಬದಲಾವಣೆಗಳನ್ನು ಊಹಿಸಲು, ಕೀಟಗಳ ಹಾವಳಿಯನ್ನು ಗುರುತಿಸಲು ಮತ್ತು ನೀರಿನ ಬಳಕೆಯನ್ನು ಅತ್ಯುತ್ತಮವಾಗಿಸಲು ಸಹಾಯ ಮಾಡುತ್ತಿವೆ.</p><p>ಕರ್ನಾಟಕ ಸರ್ಕಾರವು \'ಕೃಷಿ ತಂತ್ರಜ್ಞಾನ ಮತ್ತು ಇನೊವೇಷನ್ ಫೆಲೋಶಿಪ್\' ಅನ್ನು ಪ್ರಾರಂಭಿಸಿದೆ, ಇದು ರೈತರಿಗೆ AI-ಆಧಾರಿತ ಪರಿಹಾರಗಳನ್ನು ಅಭಿವೃದ್ಧಿಪಡಿಸಲು ಸಹಾಯ ಮಾಡುತ್ತದೆ. ಈ ಯೋಜನೆಯು ಯುವ ತಜ್ಞರಿಗೆ ಕೃಷಿ ಸಮಸ್ಯೆಗಳಿಗೆ ತಾಂತ್ರಿಕ ಪರಿಹಾರಗಳನ್ನು ರಚಿಸಲು ಅವಕಾಶ ನೀಡುತ್ತದೆ.</p>","date":"2025-09-17T09:15:00.000Z","image":"https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80"}'>
+                                Read More →
+                            </button>
+                        </div>
+                    </article>
+                </div>
+                
+                <div class="blog-categories">
+                    <div class="blog-category">
+                        <i class="fas fa-laptop-code"></i>
+                        <h3>AI Development</h3>
+                        <p>Learn how to build AI applications with our comprehensive tutorials and guides.</p>
+                  
+                    </div>
+                    
+                    <div class="blog-category">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Tech Trends</h3>
+                        <p>Stay ahead with analysis of the latest technology trends and innovations.</p>
+                       
+                    </div>
+                    
+                    <div class="blog-category">
+                        <i class="fas fa-lightbulb"></i>
+                        <h3>Thought Leadership</h3>
+                        <p>Insights and opinions from industry experts and thought leaders.</p>
+                     
+                    </div>
+                </div>
+                
+                <div class="popular-posts">
+                    <h2 class="section-title" style="text-align: left; transform: none; left: 0; margin-bottom: 1.5rem;">Popular Posts</h2>
+                    <div class="popular-grid">
+                        <div class="popular-post">
+                            <div class="popular-post-image" style="background-image: url('https://source.unsplash.com/random/600x400/?ai,machine-learning');"></div>
+                            <div class="popular-post-content">
+                                <div class="popular-post-meta">
+                                    <span><i class="far fa-calendar"></i> June 15, 2023</span>
+                                    <span><i class="far fa-eye"></i> 2.5K views</span>
+                                </div>
+                                <h3>10 Machine Learning Projects for Beginners to Build in 2023</h3>
+                                <p>Hands-on projects to help you get started with machine learning and build your portfolio.</p>
+                                <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                        
+                        <div class="popular-post">
+                            <div class="popular-post-image" style="background-image: url('https://source.unsplash.com/random/600x400/?technology,future');"></div>
+                            <div class="popular-post-content">
+                                <div class="popular-post-meta">
+                                    <span><i class="far fa-calendar"></i> May 28, 2023</span>
+                                    <span><i class="far fa-eye"></i> 3.1K views</span>
+                                </div>
+                                <h3>The Future of Work: How AI is Transforming the Workplace</h3>
+                                <p>Exploring the impact of artificial intelligence on jobs, skills, and the future of work.</p>
+                                <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                        
+                        <div class="popular-post">
+                            <div class="popular-post-image" style="background-image: url('https://source.unsplash.com/random/600x400/?startup,technology');"></div>
+                            <div class="popular-post-content">
+                                <div class="popular-post-meta">
+                                    <span><i class="far fa-calendar"></i> May 10, 2023</span>
+                                    <span><i class="far fa-eye"></i> 1.8K views</span>
+                                </div>
+                                <h3>How to Build an AI Startup: A Step-by-Step Guide</h3>
+                                <p>From idea to execution: A comprehensive guide to launching your AI startup.</p>
+                                <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="newsletter-cta" style="margin-top: 4rem;">
+                    <h3>Subscribe to Our Newsletter</h3>
+                    <p>Get the latest articles, tutorials, and news delivered straight to your inbox.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter your email" required>
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </main>
+
+   <!-- Footer -->
+   <footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-about">
+                <h3>AI KANNADA</h3>
+                <p>AI KANNADA is a platform providing information about artificial intelligence and technology in English.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Contact Us</h4>
+                <p class="mb-1 text-white-50"><i class="fas fa-envelope me-2"></i>info@careerredefine.com</p>
+                <p class="mb-1 text-white-50"><i class="fas fa-phone me-2"></i>+91 9535713363</p>
+                <p class="mb-3 text-white-50"><i class="fas fa-map-marker-alt me-2"></i>22nd Floor, World Trade Center, Unit No 2201A, Rajajinagar, Bengaluru, India</p>
+            </div>
+            <div class="footer-social">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                  <a href="https://www.facebook.com/profile.php?id=61564699643555" class="text-white me-3" style="transition: transform 0.3s;" onmouseover="this.style.transform='rotate(15deg)'" onmouseout="this.style.transform='rotate(0deg)'"><i class="fab fa-facebook"></i></a>
+                  <a href="#" class="text-white me-3" style="transition: transform 0.3s;" onmouseover="this.style.transform='rotate(15deg)'" onmouseout="this.style.transform='rotate(0deg)'"><i class="fab fa-twitter"></i></a>
+                  <a href="https://www.linkedin.com/company/career-redefine/" class="text-white me-3" style="transition: transform 0.3s;" onmouseover="this.style.transform='rotate(15deg)'" onmouseout="this.style.transform='rotate(0deg)'"><i class="fab fa-linkedin"></i></a>
+                  <a href="https://www.instagram.com/career_redefine.ai/" class="text-white" style="transition: transform 0.3s;" onmouseover="this.style.transform='rotate(15deg)'" onmouseout="this.style.transform='rotate(0deg)'"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p style="color: white;">&copy; 2025 AI KANNADA. All Rights Reserved.</p>
+
+        </div>
+    </div>
+</footer>
+
+    <!-- Article Modal -->
+    <div id="articleModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body">
+                <!-- Content will be inserted here by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/main.js"></script>
+    <script src="/js/backend.js"></script>
+    <script src="/js/site.js"></script>
+    <script>
+        // Additional JavaScript for Blogs page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Filter functionality
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const category = this.dataset.category;
+                    const blogPosts = document.querySelectorAll('.blog-post');
+                    
+                    blogPosts.forEach(post => {
+                        if (category === 'all' || post.dataset.category === category) {
+                            post.style.display = 'block';
+                        } else {
+                            post.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
